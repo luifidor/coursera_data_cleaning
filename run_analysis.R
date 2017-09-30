@@ -11,27 +11,27 @@ library(plyr)
 library(reshape2)
 
 # retrieve features names
-file <- "./mobile/features.txt"
+file <- "./features.txt"
 labels <- read.table(file, sep="")
 names(labels) <- c("pos", "metric")
 
 #retrieve activity labels
-file <- "./mobile/activity_labels.txt"
+file <- "./activity_labels.txt"
 activity <- read.table(file, sep="")
 names(activity) <- c("actionid", "action")
 
 # upload test x data
-file <- "./mobile/test/X_test.txt"
+file <- "./test/X_test.txt"
 xtest <- read.table(file, sep="")
 names(xtest) <- labels$metric
 
 # upload test labels data
-file <- "./mobile/test/y_test.txt"
+file <- "./test/y_test.txt"
 ytest <- read.table(file, sep="")
 names(ytest) <- "actionid"
 
 # upload subject data
-file <- "./mobile/test/subject_test.txt"
+file <- "./test/subject_test.txt"
 testSubject <- read.table(file, sep="")
 names(testSubject) <- "subject"
 
@@ -45,17 +45,17 @@ testData <- cbind(ytest,testSubject, xtest)
 #########
 
 # upload train x data
-file <- "./mobile/train/X_train.txt"
+file <- "./train/X_train.txt"
 xtrain <- read.table(file, sep="")
 names(xtrain) <- labels$metric
 
 # upload train labels data
-file <- "./mobile/train/y_train.txt"
+file <- "./train/y_train.txt"
 ytrain <- read.table(file, sep="")
 names(ytrain) <- "actionid"
 
 # upload subject data
-file <- "./mobile/train/subject_train.txt"
+file <- "./train/subject_train.txt"
 trainSubject <- read.table(file, sep="")
 names(trainSubject) <- "subject"
 
