@@ -11,27 +11,27 @@ library(plyr)
 library(reshape2)
 
 # retrieve features names
-file <- "./features.txt"
+file <- "./data/mobile/features.txt"
 labels <- read.table(file, sep="")
 names(labels) <- c("pos", "metric")
 
 #retrieve activity labels
-file <- "./activity_labels.txt"
+file <- "./data/mobile/activity_labels.txt"
 activity <- read.table(file, sep="")
 names(activity) <- c("actionid", "action")
 
 # upload test x data
-file <- "./test/X_test.txt"
+file <- "./data/mobile/test/X_test.txt"
 xtest <- read.table(file, sep="")
 names(xtest) <- labels$metric
 
 # upload test labels data
-file <- "./test/y_test.txt"
+file <- "./data/mobile/test/y_test.txt"
 ytest <- read.table(file, sep="")
 names(ytest) <- "actionid"
 
 # upload subject data
-file <- "./test/subject_test.txt"
+file <- "./data/mobile/test/subject_test.txt"
 testSubject <- read.table(file, sep="")
 names(testSubject) <- "subject"
 
@@ -45,17 +45,17 @@ testData <- cbind(ytest,testSubject, xtest)
 #########
 
 # upload train x data
-file <- "./train/X_train.txt"
+file <- "./data/mobile/train/X_train.txt"
 xtrain <- read.table(file, sep="")
 names(xtrain) <- labels$metric
 
 # upload train labels data
-file <- "./train/y_train.txt"
+file <- "./data/mobile/train/y_train.txt"
 ytrain <- read.table(file, sep="")
 names(ytrain) <- "actionid"
 
 # upload subject data
-file <- "./train/subject_train.txt"
+file <- "./data/mobile/train/subject_train.txt"
 trainSubject <- read.table(file, sep="")
 names(trainSubject) <- "subject"
 
@@ -85,10 +85,7 @@ subsetData <- as.data.frame(allData)[,c(1:3,vt)]
 
 # STEP 5
 #create a new clean dataset, using package reshape2
-mtcars$carname <-rownames((mtcars))
 #creates a variable column and adds one row per variable observation
 dMelt <- melt(subsetData, id =c("actionid", "action", "subject"), measure.vars=c(4:69))
 
 subjectData <- dcast(dMelt, subject ~ variable, mean)
-
-
