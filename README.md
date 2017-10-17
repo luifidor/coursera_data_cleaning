@@ -1,4 +1,3 @@
-==================================================================
 Coursera Data Science Specialization - Data Cleaning Project
 Version 1.1
 ==================================================================
@@ -15,5 +14,6 @@ The data linked to from the course website represent data collected from the acc
 The dataset includes the following files:
 =========================================
 - README
-- run_analysis.R : Script that merges the original datasets and generates de averaged tidy dataset
+- run_analysis.R : Script that merges the original datasets and generates de averaged tidy dataset.
 - tidy_data.txt : Tidy dataset with averages per metric, per individual.
+- codebook.txt : Description of all metrics and sumarizing steps for the tidy data set file.
